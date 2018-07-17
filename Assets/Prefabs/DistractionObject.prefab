@@ -124,3 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7861c4cbb499dd140afc3cd0d2cb8ed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionPrompt: {fileID: 0}
+  completionSliderPrefab: {fileID: 1678997282175298, guid: 1426f58ac83f98544b479ac4880b35e4,
+    type: 2}

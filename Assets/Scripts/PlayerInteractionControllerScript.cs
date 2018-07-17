@@ -4,62 +4,41 @@ using UnityEngine;
 
 public class PlayerInteractionControllerScript : MonoBehaviour {
 
-	public List<GameObject> activableGameObjectsInRange;
-	public List<GameObject> objectiveGameObjectsInRange;
-	private GameObject activableObject;
-	private GameObject objectiveObject;
+	public List<GameObject> interactableGameObjectsInRange;
+	private GameObject interactableObject;
+	private string[] interactableTags = { Constants.Tag.DISTRACTION_OBJECT, Constants.Tag.OBJECTIVE_OBJECT };
 
 	// Use this for initialization
 	void Start () {
-		activableGameObjectsInRange = new List<GameObject>();
-		objectiveGameObjectsInRange = new List<GameObject>();
+		interactableGameObjectsInRange = new List<GameObject>();
 	}
 
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButtonDown("Fire1") ) {
-			activableObject = firstValidActivableGameObject();
+			interactableObject = firstValidInteractableGameObject();
 
-			if (activableObject != null) {
-				activableObject.GetComponent<DistractionObjectScript>().Interact();
-			}
-			else {
-				objectiveObject = firstValidObjectiveGameObject();
-
-				if (objectiveObject != null) {
-					objectiveObject.GetComponent<ObjectiveObjectScript>().Interact();
-				}
+			if (interactableObject != null) {
+				interactableObject.GetComponent<IPlayerInteractable>().Interact();
 			}
 		}
 	}
 
-	GameObject firstValidActivableGameObject () {
-		return activableGameObjectsInRange.Find(
-			x => x.GetComponent<DistractionObjectScript>().IsInteractable()
-		);
-	}
-
-	GameObject firstValidObjectiveGameObject () {
-		return objectiveGameObjectsInRange.Find(
-			x => x.GetComponent<ObjectiveObjectScript>().IsInteractable()
+	GameObject firstValidInteractableGameObject () {
+		return interactableGameObjectsInRange.Find(
+			x => x.GetComponent<IPlayerInteractable>().IsInteractable()
 		);
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.tag == Constants.Tag.DISTRACTION_OBJECT && !activableGameObjectsInRange.Contains(other.gameObject)) {
-			activableGameObjectsInRange.Add(other.gameObject);
-		}
-		else if (other.tag == Constants.Tag.OBJECTIVE_OBJECT && !objectiveGameObjectsInRange.Contains(other.gameObject)) {
-			objectiveGameObjectsInRange.Add(other.gameObject);
+		if (System.Array.Exists(interactableTags, x => x == other.tag) && !interactableGameObjectsInRange.Contains(other.gameObject)) {
+			interactableGameObjectsInRange.Add(other.gameObject);
 		}
 	}
 
 	void OnTriggerExit(Collider other) {
-		if (other.tag == Constants.Tag.DISTRACTION_OBJECT) {
-			activableGameObjectsInRange.Remove(other.gameObject);
-		}
-		else if (other.tag == Constants.Tag.OBJECTIVE_OBJECT) {
-			objectiveGameObjectsInRange.Remove(other.gameObject);
+		if (System.Array.Exists(interactableTags, x => x == other.tag)) {
+			interactableGameObjectsInRange.Remove(other.gameObject);
 		}
 	}
 }

@@ -8,6 +8,6 @@ public static class Constants {
 	}
 
 	public static class Scene{
-		public const string MAIN = "SampleScene";
+		public const string MAIN = "Main";
 	}
 }

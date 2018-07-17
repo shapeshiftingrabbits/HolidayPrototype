@@ -15,7 +15,7 @@ public class GameManagerScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		allDistractionsHaveFailed = System.Array.TrueForAll(distractionObjects, x => x.GetComponent<ActivableScript>().IsFailed());
+		allDistractionsHaveFailed = System.Array.TrueForAll(distractionObjects, x => x.GetComponent<DistractionObjectScript>().IsFailed());
 
 		if (allDistractionsHaveFailed) {
 			RestartLevel();

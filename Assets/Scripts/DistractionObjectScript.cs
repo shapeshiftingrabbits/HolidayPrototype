@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActivableScript : MonoBehaviour {
+public class DistractionObjectScript : MonoBehaviour {
 
 	Color currentColor;
 	Color deactivatedColor = Color.grey;

@@ -21,7 +21,7 @@ public class PlayerActivateController : MonoBehaviour {
 			activableObject = firstValidActivableGameObject();
 
 			if (activableObject != null) {
-				activableObject.GetComponent<ActivableScript>().Deactivate();
+				activableObject.GetComponent<DistractionObjectScript>().Deactivate();
 			}
 			else {
 				objectiveObject = firstValidObjectiveGameObject();
@@ -35,7 +35,7 @@ public class PlayerActivateController : MonoBehaviour {
 
 	GameObject firstValidActivableGameObject () {
 		return activableGameObjectsInRange.Find(
-			x => x.GetComponent<ActivableScript>().IsActivable()
+			x => x.GetComponent<DistractionObjectScript>().IsActivable()
 		);
 	}
 

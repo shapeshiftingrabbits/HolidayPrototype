@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114443057838838994}
   - component: {fileID: 54422697514887508}
   m_Layer: 0
-  m_Name: ActivableObject
+  m_Name: DistractionObject
   m_TagString: Distraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

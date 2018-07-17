@@ -18,13 +18,13 @@ public class PlayerActivateController : MonoBehaviour {
 			activableObject = firstValidActivableGameObject();
 
 			if (activableObject != null)
-				activableObject.GetComponent<ActiveableScript>().Deactivate();
+				activableObject.GetComponent<ActivableScript>().Deactivate();
 		}
 	}
 
 	GameObject firstValidActivableGameObject () {
 		return activableGameObjectsInRange.Find(
-			x => x.GetComponent<ActiveableScript>().IsActivable()
+			x => x.GetComponent<ActivableScript>().IsActivable()
 		);
 	}
 

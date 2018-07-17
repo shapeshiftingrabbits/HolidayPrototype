@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActiveableScript : MonoBehaviour {
+public class ActivableScript : MonoBehaviour {
 
 	Color currentColor = Color.white;
 	Color deactivatedColor = Color.white;

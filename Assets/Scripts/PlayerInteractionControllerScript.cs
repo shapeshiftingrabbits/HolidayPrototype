@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerInteractionControllerScript : MonoBehaviour {
 
 	public List<GameObject> interactableGameObjectsInRange;
-	private GameObject interactableObject;
+	private GameObject currentInteractableObject;
 	private string[] interactableTags = { Constants.Tag.DISTRACTION_OBJECT, Constants.Tag.OBJECTIVE_OBJECT };
 
 	// Use this for initialization
@@ -15,30 +15,38 @@ public class PlayerInteractionControllerScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown("Fire1") ) {
-			interactableObject = firstValidInteractableGameObject();
+		RefreshCurrentInteractableObject();
 
-			if (interactableObject != null) {
-				interactableObject.GetComponent<IPlayerInteractable>().Interact();
+		if (Input.GetButtonDown("Fire1") ) {
+			if (currentInteractableObject != null) {
+				currentInteractableObject.GetComponent<IPlayerInteractable>().Interact();
 			}
 		}
-	}
-
-	GameObject firstValidInteractableGameObject () {
-		return interactableGameObjectsInRange.Find(
-			x => x.GetComponent<IPlayerInteractable>().IsInteractable()
-		);
 	}
 
 	void OnTriggerEnter(Collider other) {
 		if (System.Array.Exists(interactableTags, x => x == other.tag) && !interactableGameObjectsInRange.Contains(other.gameObject)) {
 			interactableGameObjectsInRange.Add(other.gameObject);
+			RefreshCurrentInteractableObject();
 		}
 	}
 
 	void OnTriggerExit(Collider other) {
 		if (System.Array.Exists(interactableTags, x => x == other.tag)) {
 			interactableGameObjectsInRange.Remove(other.gameObject);
+			RefreshCurrentInteractableObject();
 		}
+	}
+
+	void RefreshCurrentInteractableObject() {
+		if (currentInteractableObject != null)
+			currentInteractableObject.GetComponent<IPlayerInteractable>().HideInteractionPrompt();
+
+		currentInteractableObject = interactableGameObjectsInRange.Find(
+			x => x.GetComponent<IPlayerInteractable>().IsInteractable()
+		);
+
+		if (currentInteractableObject != null)
+			currentInteractableObject.GetComponent<IPlayerInteractable>().ShowInteractionPrompt();
 	}
 }

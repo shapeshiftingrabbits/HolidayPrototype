@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectiveObjectScript : MonoBehaviour {
+public class ObjectiveObjectScript : MonoBehaviour, IPlayerInteractable {
 
 	Color currentColor;
 	Color startColor = Color.white;
@@ -23,7 +23,7 @@ public class ObjectiveObjectScript : MonoBehaviour {
 		 UpdateColor ();
 	}
 
-	public void IncrementCompletion () {
+	public void Interact () {
 		currentCompletion += completionRate;
 	}
 
@@ -31,7 +31,7 @@ public class ObjectiveObjectScript : MonoBehaviour {
 		return currentCompletion >= finalCompletion;
 	}
 
-	public bool IsActivable () {
+	public bool IsInteractable () {
 		return !IsComplete();
 	}
 

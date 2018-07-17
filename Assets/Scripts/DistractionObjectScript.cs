@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DistractionObjectScript : MonoBehaviour {
+public class DistractionObjectScript : MonoBehaviour, IPlayerInteractable {
 
 	Color currentColor;
 	Color deactivatedColor = Color.grey;
@@ -47,7 +47,7 @@ public class DistractionObjectScript : MonoBehaviour {
 		return currentActivationTime >= activationMaximumTime;
 	}
 
-	public bool IsActivable() {
+	public bool IsInteractable() {
 		return (IsActive() && !IsFailed());
 	}
 
@@ -56,7 +56,7 @@ public class DistractionObjectScript : MonoBehaviour {
 		currentActivationTime = 0.1f;
 	}
 
-	public void Deactivate() {
+	public void Interact() {
 		currentActivationTime = 0f;
 	}
 

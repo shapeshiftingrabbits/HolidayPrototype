@@ -21,13 +21,13 @@ public class PlayerInteractionControllerScript : MonoBehaviour {
 			activableObject = firstValidActivableGameObject();
 
 			if (activableObject != null) {
-				activableObject.GetComponent<DistractionObjectScript>().Deactivate();
+				activableObject.GetComponent<DistractionObjectScript>().Interact();
 			}
 			else {
 				objectiveObject = firstValidObjectiveGameObject();
 
 				if (objectiveObject != null) {
-					objectiveObject.GetComponent<ObjectiveObjectScript>().IncrementCompletion();
+					objectiveObject.GetComponent<ObjectiveObjectScript>().Interact();
 				}
 			}
 		}
@@ -35,13 +35,13 @@ public class PlayerInteractionControllerScript : MonoBehaviour {
 
 	GameObject firstValidActivableGameObject () {
 		return activableGameObjectsInRange.Find(
-			x => x.GetComponent<DistractionObjectScript>().IsActivable()
+			x => x.GetComponent<DistractionObjectScript>().IsInteractable()
 		);
 	}
 
 	GameObject firstValidObjectiveGameObject () {
 		return objectiveGameObjectsInRange.Find(
-			x => x.GetComponent<ObjectiveObjectScript>().IsActivable()
+			x => x.GetComponent<ObjectiveObjectScript>().IsInteractable()
 		);
 	}
 

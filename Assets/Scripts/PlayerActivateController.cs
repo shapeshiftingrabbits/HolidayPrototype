@@ -27,7 +27,7 @@ public class PlayerActivateController : MonoBehaviour {
 				objectiveObject = firstValidObjectiveGameObject();
 
 				if (objectiveObject != null) {
-					objectiveObject.GetComponent<ObjectiveScript>().IncrementCompletion();
+					objectiveObject.GetComponent<ObjectiveObjectScript>().IncrementCompletion();
 				}
 			}
 		}
@@ -41,7 +41,7 @@ public class PlayerActivateController : MonoBehaviour {
 
 	GameObject firstValidObjectiveGameObject () {
 		return objectiveGameObjectsInRange.Find(
-			x => x.GetComponent<ObjectiveScript>().IsActivable()
+			x => x.GetComponent<ObjectiveObjectScript>().IsActivable()
 		);
 	}
 

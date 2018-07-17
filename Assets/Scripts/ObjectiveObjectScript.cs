@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectiveScript : MonoBehaviour {
+public class ObjectiveObjectScript : MonoBehaviour {
 
 	Color currentColor;
 	Color startColor = Color.white;

@@ -11,9 +11,9 @@ public class ActiveableScript : MonoBehaviour {
 	Color failedColor = Color.black;
 
 	float lastActivated = 0f;
-	float activationRate = 5f;
+	float activationRate = 2f;
 	float currentActivationTime = 0f;
-	float activationMaximumTime = 10f;
+	float activationMaximumTime = 5f;
 
 	// Use this for initialization
 	void Start () {

@@ -29,13 +29,13 @@ public class PlayerActivateController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.tag == "Activable" && !activableGameObjectsInRange.Contains(other.gameObject)) {
+		if (other.tag == Constants.Tag.DISTRACTION_OBJECT && !activableGameObjectsInRange.Contains(other.gameObject)) {
 			activableGameObjectsInRange.Add(other.gameObject);
 		}
 	}
 
 	void OnTriggerExit(Collider other) {
-		if (other.tag == "Activable") {
+		if (other.tag == Constants.Tag.DISTRACTION_OBJECT) {
 			activableGameObjectsInRange.Remove(other.gameObject);
 		}
 	}

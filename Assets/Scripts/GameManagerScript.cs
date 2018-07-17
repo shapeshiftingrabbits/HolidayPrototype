@@ -10,7 +10,7 @@ public class GameManagerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		distractionObjects = GameObject.FindGameObjectsWithTag("Activable");
+		distractionObjects = GameObject.FindGameObjectsWithTag(Constants.Tag.DISTRACTION_OBJECT);
 	}
 
 	// Update is called once per frame
@@ -24,6 +24,6 @@ public class GameManagerScript : MonoBehaviour {
 
 	void RestartLevel()
 	{
-		SceneManager.LoadScene ("SampleScene");
+		SceneManager.LoadScene (Constants.Scene.MAIN);
 	}
 }

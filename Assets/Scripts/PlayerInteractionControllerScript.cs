@@ -39,8 +39,14 @@ public class PlayerInteractionControllerScript : MonoBehaviour {
 	}
 
 	void RefreshCurrentInteractableObject() {
+		if (currentInteractableObject != null)
+			currentInteractableObject.GetComponent<IPlayerInteractable>().HideInteractionPrompt();
+
 		currentInteractableObject = interactableGameObjectsInRange.Find(
 			x => x.GetComponent<IPlayerInteractable>().IsInteractable()
 		);
+
+		if (currentInteractableObject != null)
+			currentInteractableObject.GetComponent<IPlayerInteractable>().ShowInteractionPrompt();
 	}
 }

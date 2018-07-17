@@ -13,6 +13,9 @@ public class ObjectiveObjectScript : MonoBehaviour, IPlayerInteractable {
 	float finalCompletion = 100f;
 	float completionRate = 10f;
 
+	public GameObject interactionPrompt;
+	Vector3 interactionPromptOffset = new Vector3(0, 65, 0);
+
 	// Use this for initialization
 	void Start () {
 		currentCompletion = initialCompletion;
@@ -43,5 +46,15 @@ public class ObjectiveObjectScript : MonoBehaviour, IPlayerInteractable {
 		);
 
 		gameObject.GetComponent<Renderer>().material.color = currentColor;
+	}
+
+	public void ShowInteractionPrompt () {
+		interactionPrompt.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position) + interactionPromptOffset;
+
+		interactionPrompt.SetActive(true);
+	}
+
+	public void HideInteractionPrompt () {
+		interactionPrompt.SetActive(false);
 	}
 }

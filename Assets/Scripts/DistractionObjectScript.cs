@@ -15,6 +15,9 @@ public class DistractionObjectScript : MonoBehaviour, IPlayerInteractable {
 	float currentActivationTime = 0f;
 	float activationMaximumTime = 5f;
 
+	public GameObject interactionPrompt;
+	Vector3 interactionPromptOffset = new Vector3(0, 65, 0);
+
 	// Use this for initialization
 	void Start () {
 		currentColor = deactivatedColor;
@@ -76,5 +79,15 @@ public class DistractionObjectScript : MonoBehaviour, IPlayerInteractable {
 		}
 
 		gameObject.GetComponent<Renderer>().material.color = currentColor;
+	}
+
+	public void ShowInteractionPrompt () {
+		interactionPrompt.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position) + interactionPromptOffset;
+
+		interactionPrompt.SetActive(true);
+	}
+
+	public void HideInteractionPrompt () {
+		interactionPrompt.SetActive(false);
 	}
 }

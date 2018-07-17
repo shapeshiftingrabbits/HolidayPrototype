@@ -28,6 +28,8 @@ public class GameManagerScript : MonoBehaviour {
 
 	void RestartLevel()
 	{
-		SceneManager.LoadScene (Constants.Scene.MAIN);
+		Scene activeScene = SceneManager.GetActiveScene();
+
+		SceneManager.LoadScene (activeScene.name);
 	}
 }

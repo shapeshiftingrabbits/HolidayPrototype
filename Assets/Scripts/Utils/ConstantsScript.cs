@@ -10,5 +10,6 @@ public static class Constants {
 
 	public static class Scene{
 		public const string MAIN = "Main";
+		public const string LEVEL_1 = "Level 1";
 	}
 }

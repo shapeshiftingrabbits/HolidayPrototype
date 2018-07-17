@@ -47,12 +47,16 @@ public class ActiveableScript : MonoBehaviour {
 		return currentActivationTime >= activationMaximumTime;
 	}
 
+	public bool IsActivable() {
+		return (IsActive() && !IsFailed());
+	}
+
 	void Activate() {
 		lastActivated = 0f;
 		currentActivationTime = 0.1f;
 	}
 
-	void Deactivate() {
+	public void Deactivate() {
 		currentActivationTime = 0f;
 	}
 

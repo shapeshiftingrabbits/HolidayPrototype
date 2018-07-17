@@ -5,7 +5,7 @@ using UnityEngine;
 public class ActivableScript : MonoBehaviour {
 
 	Color currentColor;
-	Color deactivatedColor = Color.white;
+	Color deactivatedColor = Color.grey;
 	Color activatedStartColor = Color.yellow;
 	Color activatedEndColor = Color.red;
 	Color failedColor = Color.black;

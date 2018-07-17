@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Distraction
+  - Objective
   layers:
   - Default
   - TransparentFX

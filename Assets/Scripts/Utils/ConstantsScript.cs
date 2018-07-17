@@ -5,6 +5,7 @@ using UnityEngine;
 public static class Constants {
 	public static class Tag{
 		public const string DISTRACTION_OBJECT = "Distraction";
+		public const string OBJECTIVE_OBJECT = "Objective";
 	}
 
 	public static class Scene{

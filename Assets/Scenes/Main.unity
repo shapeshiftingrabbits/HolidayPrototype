@@ -818,6 +818,11 @@ Prefab:
       propertyPath: interactionPrompt
       value: 
       objectReference: {fileID: 2009385504}
+    - target: {fileID: 114629278450564808, guid: 4fee5868fc24eaf4ea018ebfc47a3bf3,
+        type: 2}
+      propertyPath: completionSlider
+      value: 
+      objectReference: {fileID: 855140825}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4fee5868fc24eaf4ea018ebfc47a3bf3, type: 2}
   m_IsPrefabParent: 0
@@ -1295,6 +1300,11 @@ Prefab:
       propertyPath: interactionPrompt
       value: 
       objectReference: {fileID: 2009385504}
+    - target: {fileID: 114629278450564808, guid: 4fee5868fc24eaf4ea018ebfc47a3bf3,
+        type: 2}
+      propertyPath: completionSlider
+      value: 
+      objectReference: {fileID: 1501816388}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4fee5868fc24eaf4ea018ebfc47a3bf3, type: 2}
   m_IsPrefabParent: 0

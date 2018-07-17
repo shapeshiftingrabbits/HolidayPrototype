@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectiveObjectScript : MonoBehaviour, IPlayerInteractable {
 
@@ -16,6 +17,8 @@ public class ObjectiveObjectScript : MonoBehaviour, IPlayerInteractable {
 	public GameObject interactionPrompt;
 	Vector3 interactionPromptOffset = new Vector3(0, 65, 0);
 
+	public GameObject completionSlider;
+
 	// Use this for initialization
 	void Start () {
 		currentCompletion = initialCompletion;
@@ -28,6 +31,8 @@ public class ObjectiveObjectScript : MonoBehaviour, IPlayerInteractable {
 
 	public void Interact () {
 		currentCompletion += completionRate;
+
+		completionSlider.GetComponent<Slider>().value = currentCompletion;
 	}
 
 	public bool IsComplete () {

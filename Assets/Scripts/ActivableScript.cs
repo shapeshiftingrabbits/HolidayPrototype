@@ -43,7 +43,7 @@ public class ActivableScript : MonoBehaviour {
 		return currentActivationTime > 0f;
 	}
 
-	bool IsFailed () {
+	public bool IsFailed () {
 		return currentActivationTime >= activationMaximumTime;
 	}
 

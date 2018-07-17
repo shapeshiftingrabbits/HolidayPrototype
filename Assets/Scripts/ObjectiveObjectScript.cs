@@ -27,7 +27,7 @@ public class ObjectiveObjectScript : MonoBehaviour, IPlayerInteractable {
 		currentCompletion += completionRate;
 	}
 
-	bool IsComplete () {
+	public bool IsComplete () {
 		return currentCompletion >= finalCompletion;
 	}
 

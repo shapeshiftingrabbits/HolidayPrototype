@@ -17,11 +17,21 @@ public class ObjectiveObjectScript : MonoBehaviour, IPlayerInteractable {
 	public GameObject interactionPrompt;
 	Vector3 interactionPromptOffset = new Vector3(0, 65, 0);
 
-	public GameObject completionSlider;
+	GameObject canvas;
+	public GameObject completionSliderPrefab;
+	GameObject completionSlider;
+	Vector3 completionSliderPositionOffset = new Vector3(0, -45, 0);
 
 	// Use this for initialization
 	void Start () {
 		currentCompletion = initialCompletion;
+
+		canvas = GameObject.Find("Canvas");
+		completionSlider = Instantiate(completionSliderPrefab, canvas.transform);
+
+		completionSlider.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position) + completionSliderPositionOffset;
+		completionSlider.GetComponent<Slider>().minValue = initialCompletion;
+		completionSlider.GetComponent<Slider>().maxValue = finalCompletion;
 	}
 
 	// Update is called once per frame

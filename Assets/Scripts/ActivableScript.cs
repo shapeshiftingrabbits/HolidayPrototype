@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ActivableScript : MonoBehaviour {
 
-	Color currentColor = Color.white;
+	Color currentColor;
 	Color deactivatedColor = Color.white;
 	Color activatedStartColor = Color.yellow;
 	Color activatedEndColor = Color.red;
@@ -17,7 +17,7 @@ public class ActivableScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameObject.GetComponent<Renderer>().material.color = deactivatedColor;
+		currentColor = deactivatedColor;
 	}
 
 	// Update is called once per frame

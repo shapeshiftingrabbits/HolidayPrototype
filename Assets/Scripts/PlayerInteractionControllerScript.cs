@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerActivateController : MonoBehaviour {
+public class PlayerInteractionControllerScript : MonoBehaviour {
 
 	public List<GameObject> activableGameObjectsInRange;
 	public List<GameObject> objectiveGameObjectsInRange;
